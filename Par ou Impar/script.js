@@ -1,15 +1,27 @@
-function calcular(){
+function calcular() {
     let number = document.getElementById("numero")
 
     let conversao = Number(number.value)
 
     let resultado = document.getElementById("resultado")
 
-    if (conversao % 2 === 0){
-       resultado.innerHTML = `O número ${conversao} é par!`
+    if (number.value.trim() === "") {
+        resultado.innerText = "Digite um numero!"
+        return
+    }
+
+    if (conversao > 0) {
+        resultado.innerText = `O valor é positivo, `
+    } else if (conversao < 0) {
+        resultado.innerText = `O valor é negativo, `
     } else {
-        resultado.innerHTML = `O número ${conversao} é Impar!`
+        resultado.innerText = `O valor é zero, `
+    }
+
+
+    if (conversao % 2 === 0) {
+        resultado.innerHTML += `O número ${conversao} é par!`
+    } else {
+        resultado.innerHTML += `O número ${conversao} é Impar!`
     }
 }
-
-document.body.style.backgroundcolor = "#0000"
