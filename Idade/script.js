@@ -32,6 +32,8 @@ function clicar() {
         resultado.innerHTML = `<br> Você tem ${convidade} anos de idade`
     }
 
+
+    
     if(convidade >= 0 && convidade <= 12 ){
         resultado.innerHTML += `<br> Você é uma Criança`
     }else if (convidade <= 17){

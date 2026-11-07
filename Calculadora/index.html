@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+
+    <input type="number" name="" id="n1" placeholder="Digite o Primeiro Numero">
+
+    <input type="number" name="" id="n2" placeholder="Dogite o Segundo Numero">
+
+    <input type="radio" name="calcular" id="mais" value="+"> Adição
+    <input type="radio" name="calcular" id="menos" value="-"> Subtrair
+    <input type="radio" name="calcular" id="vezes" value="*"> Multiplicar
+    <input type="radio" name="calcular" id="dividir" value="/"> Divisão
+
+    <button onclick="clicar()">=</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        let n1 = document.getElementById("n1");
+        let n2 = document.getElementById("n2");
+
+        let resultado = document.getElementById("resultado");
+
+        function clicar(){
+            let primeiroNumero = Number(n1.value);
+            let segundoNumero = Number(n2.value);
+
+            let escolher = document.querySelectorAll('input[name="calcular"]:checked');
+
+            if(n1.value.trim() === "" || n2.value.trim() === ""){
+                window.alert("[ERRO] Dados incorretos, verifique e tente novamente!")
+                return
+            }
+
+
+        }
+
+
+    </script>
+</body>
+</html>
