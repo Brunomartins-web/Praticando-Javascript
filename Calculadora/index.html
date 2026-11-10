@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
 </head>
+
 <body>
     <h1>Calculadora</h1>
 
@@ -12,10 +14,10 @@
 
     <input type="number" name="" id="n2" placeholder="Dogite o Segundo Numero">
 
-    <input type="radio" name="calcular" id="mais" value="+"> Adição
-    <input type="radio" name="calcular" id="menos" value="-"> Subtrair
-    <input type="radio" name="calcular" id="vezes" value="*"> Multiplicar
-    <input type="radio" name="calcular" id="dividir" value="/"> Divisão
+    <input type="radio" name="calcular" id="mais" value="MAIS"> +
+    <input type="radio" name="calcular" id="menos" value="MENOS"> -
+    <input type="radio" name="calcular" id="vezes" value="VEZES"> x
+    <input type="radio" name="calcular" id="dividir" value="DIVIDIR"> /
 
     <button onclick="clicar()">=</button>
 
@@ -27,16 +29,48 @@
 
         let resultado = document.getElementById("resultado");
 
-        function clicar(){
+        resultado.style.paddingTop = "10px"
+        resultado.style.display = "flex"
+
+        function clicar() {
             let primeiroNumero = Number(n1.value);
             let segundoNumero = Number(n2.value);
 
-            let escolher = document.querySelectorAll('input[name="calcular"]:checked');
+            let soma = primeiroNumero + segundoNumero;
+            let subtração = primeiroNumero - segundoNumero;
+            let dividir = primeiroNumero / segundoNumero;
+            let multiplicar = primeiroNumero * segundoNumero;
 
-            if(n1.value.trim() === "" || n2.value.trim() === ""){
+            let escolher = document.querySelector('input[name="calcular"]:checked');
+
+            if (n1.value.trim() === "" || n2.value.trim() === "") {
                 window.alert("[ERRO] Dados incorretos, verifique e tente novamente!")
                 return
             }
+
+            if (escolher == null){
+                window.alert("[ERRO] Selecione uma operação!")
+            }
+
+
+            if (segundoNumero == 0) {
+                window.alert("[ERRO] NÃO DA PARA DIVIDIR NENHUM NUMERO POR ZERO, TENTE NOVAMENTE!")
+                return
+            }
+
+
+            if (escolher.value == "MAIS") {
+                resultado.innerHTML = `${soma}`;
+            } else if (escolher.value == "MENOS") {
+                resultado.innerHTML = `${subtração}`
+            } else if (escolher.value == "VEZES") {
+                resultado.innerHTML = `${multiplicar}`
+            } else if (escolher.value == "DIVIDIR") {
+                resultado.innerHTML = `${dividir}`
+            } else {
+                return
+            }
+
 
 
         }
@@ -44,4 +78,5 @@
 
     </script>
 </body>
+
 </html>
