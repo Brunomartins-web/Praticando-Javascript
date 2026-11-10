@@ -33,6 +33,9 @@
         resultado.style.display = "flex"
 
         function clicar() {
+
+            resultado.innerHTML = "";
+
             let primeiroNumero = Number(n1.value);
             let segundoNumero = Number(n2.value);
 
@@ -48,31 +51,28 @@
                 return
             }
 
-            if (escolher == null){
+            if (escolher == null) {
                 window.alert("[ERRO] Selecione uma operação!")
-            }
-
-
-            if (segundoNumero == 0) {
-                window.alert("[ERRO] NÃO DA PARA DIVIDIR NENHUM NUMERO POR ZERO, TENTE NOVAMENTE!")
                 return
             }
+
+
 
 
             if (escolher.value == "MAIS") {
-                resultado.innerHTML = `${soma}`;
+                resultado.innerHTML = `Resultado: ${soma}`;
             } else if (escolher.value == "MENOS") {
-                resultado.innerHTML = `${subtração}`
+                resultado.innerHTML = `Resultado: ${subtração}`
             } else if (escolher.value == "VEZES") {
-                resultado.innerHTML = `${multiplicar}`
+                resultado.innerHTML = `Resultado: ${multiplicar}`
             } else if (escolher.value == "DIVIDIR") {
-                resultado.innerHTML = `${dividir}`
-            } else {
-                return
-            }
-
-
-
+                if (segundoNumero == 0) {
+                    window.alert("[ERRO] NÃO DA PARA DIVIDIR NENHUM NUMERO POR ZERO, TENTE NOVAMENTE!");
+                    return;
+                } else{
+                    resultado.innerHTML = `Resultado: ${dividir}`
+                }
+        }
         }
 
 
